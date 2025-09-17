@@ -32,50 +32,18 @@
 </head>
 <body>
   <div class="card">
-    <img id="fraseImg" alt="Tu señal" src="" />
+    <!-- Forzamos a que cargue la versión actualizada del logo con ?v=2 -->
+    <img id="fraseImg" alt="Tu señal" src="img/logo.png?v=2" />
     <div class="footer">✨ Tu señal del día</div>
   </div>
 
   <script>
-    const IMAGENES = [
-      "https://i.postimg.cc/s2t9TYDH/01.jpg",
-      "https://i.postimg.cc/Qt1gwFF8/02.jpg",
-      "https://i.postimg.cc/wMz5p9Nh/03.jpg",
-      "https://i.postimg.cc/mkSYZK3K/04.jpg",
-      "https://i.postimg.cc/DfQdcbV5/05.jpg",
-      "https://i.postimg.cc/c4XRpyLn/06.jpg",
-      "https://i.postimg.cc/ncHKScpx/07.jpg",
-      "https://i.postimg.cc/9Q0dV8DN/08.jpg",
-      "https://i.postimg.cc/GmfkpFY3/09.jpg",
-      "https://i.postimg.cc/s2Z5GM9Y/10.jpg",
-      "https://i.postimg.cc/FR53yhD2/11.jpg",
-      "https://i.postimg.cc/L5mPWNdD/12.jpg",
-      "https://i.postimg.cc/9MdT1skz/13.jpg",
-      "https://i.postimg.cc/Xqx56d4b/14.jpg",
-      "https://i.postimg.cc/mZSC9fM5/15.jpg",
-      "https://i.postimg.cc/9FFTt8YF/16.jpg",
-      "https://i.postimg.cc/dtHCW25R/17.jpg",
-      "https://i.postimg.cc/Gm4y64fW/18.jpg",
-      "https://i.postimg.cc/9Qs72W5r/19.jpg",
-      "https://i.postimg.cc/W4rJbQTS/20.jpg",
-      "https://i.postimg.cc/hjBQJpGn/21.jpg",
-      "https://i.postimg.cc/4dQ7pVK9/22.jpg",
-      "https://i.postimg.cc/WzpD8zrf/23.jpg",
-      "https://i.postimg.cc/QC6FyDJN/24.jpg",
-      "https://i.postimg.cc/tRDnTdG0/25.jpg",
-      "https://i.postimg.cc/vHBg61G4/26.jpg",
-      "https://i.postimg.cc/sDNBPV2w/27.jpg",
-      "https://i.postimg.cc/dVZh4zkv/28.jpg",
-      "https://i.postimg.cc/N0h5VpmX/29.jpg",
-      "https://i.postimg.cc/W4MhPgwH/30.jpg",
-      "https://i.postimg.cc/j5tCq28d/31.jpg",
-      "https://i.postimg.cc/nz2rXx5K/32.jpg",
-      "https://i.postimg.cc/4y3dtMkD/33.jpg"
-    ];
+    // Genera automáticamente rutas img/01.jpg hasta img/50.jpg
+    const IMAGENES = Array.from({length: 50}, (_, i) => `img/${String(i+1).padStart(2,'0')}.jpg`);
 
     function mostrarImagenAleatoria(){
       const idx = Math.floor(Math.random() * IMAGENES.length);
-      document.getElementById('fraseImg').src = IMAGENES[idx];
+      document.getElementById('fraseImg').src = IMAGENES[idx] + '?v=2';
     }
     mostrarImagenAleatoria();
   </script>
