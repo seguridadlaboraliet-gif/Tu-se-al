@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Señal del Día</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    .post {
+      background-color: rgba(255, 255, 255, 0.95); /* fondo blanco opaco */
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      max-width: 1080px;   /* ajustado al tamaño de la imagen */
+      max-height: 1080px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .post img {
+      width: 100%;
+      height: auto;       /* mantiene proporción */
+      border-radius: 10px;
+      object-fit: contain; /* evita estiramiento */
+    }
+  </style>
+</head>
+<body>
+  <div class="post">
+    <img id="imagenAleatoria" src="" alt="Señal del Día">
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const imagenes = [];
+      for (let i = 1; i <= 30; i++) {
+        const numero = i.toString().padStart(2, '0'); // 01, 02 ...
+        imagenes.push(`img/${numero}.jpg`);
+      }
+
+      const img = document.getElementById("imagenAleatoria");
+      const indiceAleatorio = Math.floor(Math.random() * imagenes.length);
+      img.src = imagenes[indiceAleatorio];
+    });
+  </script>
+</body>
+</html>
+
+
